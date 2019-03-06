@@ -16,8 +16,15 @@
 <script type="text/javascript" src="js/registrationForm.js"></script>
 </head>
 <body onload="start()">
+<input type="image" onclick="goBack()" style="border:none;margin-left:15%;width: 8%;float:left;" src="img1\backArrow.png" >
 	<h1>REGISTRATION FORM</h1>
 	<div id="formAndProgress">
+		
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
 		<div id="registration">
 			<form id="modulo" method="post" name="modulo">
 				<div class="passwordWithPic">

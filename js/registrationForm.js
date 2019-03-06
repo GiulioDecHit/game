@@ -102,7 +102,8 @@ function addBorderForValidity(element) {
 	}
 }
 
-function checkPassword() {
+function checkPassword() 
+{
 	var password = document.getElementById("password");
 	var conferma = document.getElementById("conferma");
 	if (conferma.value != null && conferma.value != "") {

@@ -5,7 +5,7 @@
     <title>$Title$</title>
   </head>
   <body>
-  <a href="nuovoGioco"> Vai alla login</a>
+  <a href="showRanker"> Vai alla login</a>
   $END$
   </body>
 </html>

@@ -4,6 +4,7 @@ import com.dechit.cv.example.match.Partita;
 import com.dechit.cv.example.ranking.ClassificaGenerale;
 import com.dechit.cv.example.service.MatchService;
 import com.dechit.cv.example.service.RankingService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MatchController {
-
+    @Autowired(required = true)
     private MatchService matchService;
 
 

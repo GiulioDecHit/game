@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Date;
 import java.util.Map;
 import java.util.Objects;
 
@@ -59,7 +58,7 @@ public class UserController {
         model.addAttribute("nome", this.userService.getPersonById(nickname).getNome());
         model.addAttribute("cognome", this.userService.getPersonById(nickname).getCognome());
 
-        return "showUser";
+        return "showRanking";
     }
 
     @RequestMapping(value = "loginForm1", method = RequestMethod.POST)

@@ -21,27 +21,27 @@ public class RankingController {
     @RequestMapping(value = "ranking", method = RequestMethod.GET)
     public String showUser(Model model) {
         model.addAttribute("ranking", new ClassificaGenerale());
-        return "ranking";
+        return "showRanker";
     }
 
 //per nazione
-    @RequestMapping(value = "/showRanking", params = {"nazione"})
+    @RequestMapping(value = "showRanking1", params = {"nazione"})
     public String listUserNation(Model model) {
         //oggetto che si occupa di passare i dati dalla model alla view
         model.addAttribute("ranking", new ClassificaGenerale());
         model.addAttribute("listRanking", this.rankingService.showByNation(""));
-        return "showUser";
+        return "showRanking2";
     }
 
-    @RequestMapping(value = "/showRanking", params = {"tipo"})
+    @RequestMapping(value = "showRanking1", params = {"tipo"})
     public String listUserType(String tipo, Model model) {
         //oggetto che si occupa di passare i dati dalla model alla view
         model.addAttribute("ranking", new ClassificaGenerale());
         model.addAttribute("listRanking", this.rankingService.showByType(tipo));
-        return "showRanking";
+        return "showRanking1";
     }
 
-    @RequestMapping(value = "/showRanking", method = RequestMethod.GET)
+    @RequestMapping(value = "showRanker", method = RequestMethod.GET)
     public String listUserAdd(Model model) {
         //oggetto che si occupa di passare i dati dalla model alla view
         model.addAttribute("ranking", new ClassificaGenerale());

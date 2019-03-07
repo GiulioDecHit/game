@@ -21,7 +21,7 @@ var FUNGO = 10;
 var omino = "omino";
 var ominoConSpada = "ominoConSpada";
 
-var pathImg = "resources/img1/";
+var pathImg = "./resources/img1/";
 
 // dichiarazione variabili di lavoro
 var i=0;

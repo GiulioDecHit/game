@@ -4,14 +4,14 @@ var playground = null;
 var player = null;
 var enemies =[];
 var level= new Level();
-var imgPath="resources/img1/";
+var imgPath="./resources/img1/";
 var intervalItems=null;
 var checkInterval=null;
 var catchInterval=null;
 var gameStatus='STOPPED';
 var audioIniziale=new Audio(URL=imgPath+"sound2.wav");
 var audioMonete=new Audio(URL=imgPath+"moneta.wav");
-var endAudio= new Audio(URL=imgPath+"gameover3.wav")
+var endAudio= new Audio(URL=imgPath+"gameover3.wav");
 var playerArmedInterval=null;
 
 
@@ -29,8 +29,6 @@ var pressed = button.target.id;
     if(gameStatus==='STOPPED' || gameStatus==='PAUSED' ){
         return;
     }
-
-
     switch (pressed) {
         //move left
         case 'left':{
@@ -49,7 +47,7 @@ var pressed = button.target.id;
             ////console.log('moving right');
             if(this.player.x < this.playgroundX-1 && checkPlayerValidity(this.player.x +1, this.player.y)){
                 if(!this.player.armed){
-                this.player.imgSrc='img1/ominoD.jpg';
+                this.player.imgSrc= imgPath+'ominoD.jpg';
                 }
                 this.player.updatePlayer();
                 this.player.x++;
@@ -83,65 +81,67 @@ var pressed = button.target.id;
     this.playground.setItem(this.player);
 }
 
-document.addEventListener('keydown', (event) => { //arrow function
-    var pressed = event.keyCode;
-    if(gameStatus==='STOPPED' || gameStatus==='PAUSED' ){
-        return;
-    }
-
-    switch (pressed) {
-        //move left
-        case 37:{
-            ////console.log('moving left');
-            if(this.player.x !== 0 && checkPlayerValidity(this.player.x -1, this.player.y)){
-                if(!this.player.armed){
-                this.player.imgSrc='img1/ominoS.jpg';
-                }
-                this.player.updatePlayer();
-                this.player.x--;
-            }
-          break;
-        }
-        //move right
-        case 39:{
-            ////console.log('moving right');
-            if(this.player.x < this.playgroundX-1 && checkPlayerValidity(this.player.x +1, this.player.y)){
-                if(!this.player.armed){
-                this.player.imgSrc='img1/ominoD.jpg';
-                }
-                this.player.updatePlayer();
-                this.player.x++;
-            }
-            break;
-        }
-        //move up
-        case 38:{
-           // //console.log('moving up');
-            if(this.player.y !== 0 && checkPlayerValidity(this.player.x, this.player.y-1)) {
-                this.player.updatePlayer();
-                this.player.y--;
-            }
-            break;
-        }
-        //move down
-        case 40:{
-            ////console.log('moving down');
-            if(this.player.y !== this.playgroundY-1 && checkPlayerValidity(this.player.x , this.player.y+1)){
-                this.player.updatePlayer();
-                this.player.y++;
-            }
-            break;
-        }
-        default:{
-            ////console.log(pressed);
-            break;
+function movement() {
+    document.addEventListener('keydown', (event) => { //arrow function
+        var pressed = event.keyCode;
+        if (gameStatus === 'STOPPED' || gameStatus === 'PAUSED') {
+            return;
         }
 
-    }
-    this.checkCell(this.player.x,this.player.y);
-    this.playground.setItem(this.player);
-    //console.log('player stats :  life:'+player.life+ ' gems : '+player.gems+ ' energy: '+player.energy)
-});
+        switch (pressed) {
+            //move left
+            case 37: {
+                //console.log('moving left');
+                if (this.player.x !== 0 && checkPlayerValidity(this.player.x - 1, this.player.y)) {
+                    if (!this.player.armed) {
+                        this.player.imgSrc = imgPath + 'ominoS.jpg';
+                    }
+                    this.player.updatePlayer();
+                    this.player.x--;
+                }
+                break;
+            }
+            //move right
+            case 39: {
+                //console.log('moving right');
+                if (this.player.x < this.playgroundX - 1 && checkPlayerValidity(this.player.x + 1, this.player.y)) {
+                    if (!this.player.armed) {
+                        this.player.imgSrc = imgPath + 'ominoD.jpg';
+                    }
+                    this.player.updatePlayer();
+                    this.player.x++;
+                }
+                break;
+            }
+            //move up
+            case 38: {
+                //console.log('moving up');
+                if (this.player.y !== 0 && checkPlayerValidity(this.player.x, this.player.y - 1)) {
+                    this.player.updatePlayer();
+                    this.player.y--;
+                }
+                break;
+            }
+            //move down
+            case 40: {
+                // console.log('moving down');
+                if (this.player.y !== this.playgroundY - 1 && checkPlayerValidity(this.player.x, this.player.y + 1)) {
+                    this.player.updatePlayer();
+                    this.player.y++;
+                }
+                break;
+            }
+            default: {
+                ////console.log(pressed);
+                break;
+            }
+
+        }
+        this.checkCell(this.player.x, this.player.y);
+        this.playground.setItem(this.player);
+        //console.log('player stats :  life:'+player.life+ ' gems : '+player.gems+ ' energy: '+player.energy)
+    });
+}
 function clearAll(){//clearing all interval
     this.enemies.forEach((e)=>{
         e.stopFollow();
@@ -189,6 +189,7 @@ function startGame(){
     this.createEnemies();
     this.generateItem();
     this.checkCatch();
+    this.movement();
     if(level.levelNum ===1){
         document.getElementById('levelIco').innerText='looks_one';
     }
@@ -309,7 +310,7 @@ function checkCell(x,y){
                 var rotation=45;
                 this.enemies.forEach((e)=>{
                     this.playground.rotateItem(e,rotation)
-                })
+                });
                 if(rotation>0){
                     roatation=rotation-90;
                 }else{

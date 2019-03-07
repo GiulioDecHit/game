@@ -18,7 +18,7 @@ public class RankingController {
         this.rankingService = rs;
     }
 
-    @RequestMapping(value = "/ranking", method = RequestMethod.GET)
+    @RequestMapping(value = "ranking", method = RequestMethod.GET)
     public String showUser(Model model) {
         model.addAttribute("ranking", new ClassificaGenerale());
         return "ranking";

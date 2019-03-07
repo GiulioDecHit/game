@@ -33,10 +33,10 @@ public class Utente implements Serializable {
     private String cognome;
 
     @Column(name = "sesso")
-    private char sesso;
+    private String sesso;
 
     @Column(name = "datanascita")
-    private Date dataNascita;
+    private String dataNascita;
 
     @Column(name = "luogodinascita")
     private String luogoDiNascita;
@@ -60,7 +60,7 @@ public class Utente implements Serializable {
     }
 
 
-    public Utente(String nome, String cognome, char sesso, Date dataNascita, String luogoDiNascita,
+    public Utente(String nome, String cognome, String sesso, String dataNascita, String luogoDiNascita,
                   String paese, String codiceFiscale, String nickUtente, String password) {
         this.nome = nome;
         this.cognome = cognome;
@@ -121,19 +121,19 @@ public class Utente implements Serializable {
         this.paese = paese;
     }
 
-    public char getSesso() {
+    public String getSesso() {
         return sesso;
     }
 
-    public void setSesso(char sesso) {
+    public void setSesso(String sesso) {
         this.sesso = sesso;
     }
 
-    public Date getDataNascita() {
+    public String getDataNascita() {
         return dataNascita;
     }
 
-    public void setDataNascita(Date dataNascita) {
+    public void setDataNascita(String dataNascita) {
         this.dataNascita = dataNascita;
     }
 

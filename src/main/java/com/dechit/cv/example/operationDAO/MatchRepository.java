@@ -12,6 +12,7 @@ public class MatchRepository extends OperationDaoImp<Partita> implements MatchDA
     @Override
     public void addToRanking(Partita partita){
         super.add(partita);
+
     }
 
 }

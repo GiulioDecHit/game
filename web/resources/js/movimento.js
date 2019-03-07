@@ -99,7 +99,7 @@ function sposta(daX, daY, aX, aY) {
 		var daSrc = "c" + daX + "_" + daY;
 		var aSrc = "c" + aX + "_" + aY;
 		console.log(daSrc + " " + aSrc);
-		document.getElementById(daSrc).src = pathImg + piano[daX][daY] + ".jpg";
+		document.getElementById(daSrc).src = imgPath + piano[daX][daY] + ".jpg";
 		// document.getElementById(aSrc).src = pathImg + omino + ".jpg";
 		ominoX = aX;
 		ominoY = aY;

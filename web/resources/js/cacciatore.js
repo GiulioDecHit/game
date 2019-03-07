@@ -36,14 +36,14 @@ Cacciatore.prototype.insegui1 = function() {
 		this.x = newX;
 		this.y = newY;
 		// si disegna il cacciatore nella nuova cella
-		document.getElementById("c" + precX + "_" + precY).src = pathImg+piano[precX][precY]
+		document.getElementById("c" + precX + "_" + precY).src = imgPath+piano[precX][precY]
 				+ ".jpg";
-		document.getElementById("c" + this.x + "_" + this.y).src = pathImg+this.nome
+		document.getElementById("c" + this.x + "_" + this.y).src = imgPath+this.nome
 				+ ".jpg";
 	}
 	
 	
-} 
+};
 
 
 Cacciatore.prototype.insegui2 = function() {
@@ -76,9 +76,9 @@ Cacciatore.prototype.insegui2 = function() {
 		this.x = newX;
 		this.y = newY;
 		// si disegna il cacciatore nella nuova cella
-		document.getElementById("c" + precX + "_" + precY).src = pathImg+piano[precX][precY]
+		document.getElementById("c" + precX + "_" + precY).src = imgPath+piano[precX][precY]
 				+ ".jpg";
-		document.getElementById("c" + this.x + "_" + this.y).src = pathImg+this.nome
+		document.getElementById("c" + this.x + "_" + this.y).src = imgPath+this.nome
 				+ ".jpg";
 	}
 
@@ -88,7 +88,7 @@ Cacciatore.prototype.insegui2 = function() {
 			gameOver();
 		}
 
-}
+};
 
 var c1 = new Cacciatore(9,9,"cacciatore");
 var c2 = new Cacciatore(1,1,"cacciatore");

@@ -1,16 +1,26 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:url value="/resources/js/Playground.js" var="playgroud"/>
+<c:url value="/resources/js/Player.js" var="player"/>
+<c:url value="/resources/js/Enemy.js" var="enemy"/>
+<c:url value="/resources/js/Items.js" var="items"/>
+<c:url value="/resources/js/Level.js" var="level"/>
+<c:url value="/resources/js/Game.js" var="game"/>
+<c:url value="/resources/css/game.css" var="cssGame"/>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
-    <script type="text/javascript" src="<c:url value="/resources/js/Playground.js"/>"></script>
-    <script type="text/javascript" src="<c:url value="/resources/js/Player.js"/>"></script>
-    <script type="text/javascript" src="<c:url value="/resources/js/Enemy.js"/>"></script>
-    <script type="text/javascript" src="<c:url value="/resources/js/Items.js"/>"></script>
-    <script type="text/javascript" src="<c:url value="/resources/js/Level.js"/>"></script>
-    <script type="text/javascript" src="<c:url value="/resources/js/Game.js"/>"></script>
-    <link rel="stylesheet" href="<c:url value="/resources/css/game.css"/>"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script type="text/javascript" src="${playgroud}"></script>
+    <script type="text/javascript" src="${player}"></script>
+    <script type="text/javascript" src="${enemy}"></script>
+    <script type="text/javascript" src="${items}"></script>
+    <script type="text/javascript" src="${level}"></script>
+    <script type="text/javascript" src="${game}"></script>
+    <link rel="stylesheet" type="text/css" href="${cssGame}">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>
@@ -27,47 +37,62 @@
 </head>
 
 <body onload="setGame()">
+
+
 <div class="container-fluid">
 
     <div class="row mt-3 mt-lg-1 ">
         <div class="col-lg-4 col-2 offset-1 offset-lg-0">
-            <img src="<c:url value="/resources/img1/computercattivo.png"/>" class="rounded img-fluid rounded float-right"
-                 alt="Cinque Terre">
+
+            <img src="<c:url value="/resources/img1/computercattivo2.png"/>" class="rounded img-fluid rounded float-right"
+                 alt="Cinque Terre"> </img>
+
         </div>
         <div class="col-lg-4 col-6">
             <div class="mx-auto d-block">
-                <img src="<c:url value="/resources/img1/badware2.png"/>" class="rounded img-fluid rounded mx-auto d-block " alt="Cinque Terre">
+                <img src="<c:url value="/resources/img1/badware2.png"/>" class="rounded img-fluid rounded mx-auto d-block "
+                     alt="Cinque Terre">
+                </img>
             </div>
         </div>
         <div class="col-lg-4 col-2">
-            <img src="<c:url value="/resources/img1/computercattivo2.png"/>" class="rounded img-fluid rounded float-left " alt="Cinque Terre">
+
+            <img src="<c:url value="/resources/img1/computercattivo2.png"/>" class="rounded img-fluid rounded float-left "
+                 alt="Cinque Terre">
+            </img>
+
         </div>
     </div>
+
     <div class="row my-3" id="gameStatus" hidden>
         <div class="col-lg-4"></div>
-        <div class="itemDiv col-lg-1 col-3 offset-lg-4 offset-0 mx-lg-1 ">
+
+        <div class="itemDiv col-lg-1 col-3 offset-lg-4 offset-0  mx-lg-1 ">
             Lifes:
             <b id="lifesValue"></b>
             <i class="material-icons myIcon" style="color:red;">favorite_border</i>
         </div>
-        <div class="itemDiv col-lg-1 col-3 offset-lg-4 offset-0 mx-lg-1 ">
+        <div class="itemDiv col-lg-1 col-3 offset-lg-4 offset-0  mx-lg-1 ">
             Gems:
             <b id="gemsValue"></b>
             <i class="material-icons myIcon " style="color:green;">monetization_on</i>
         </div>
-        <div class="itemDiv col-lg-1 col-3 offset-lg-4 offset-0 mx-lg-1 ">
+        <div class="itemDiv col-lg-1 col-3 offset-lg-4 offset-0  mx-lg-1 ">
             Level:
             <b id="level"></b>
             <i class="material-icons myIcon" id="levelIco" style="color:orange;"></i>
         </div>
-        <div class="itemDiv col-lg-1 col-3 offset-lg-4 offset-0 mx-lg-1 ">
+        <div class="itemDiv col-lg-1 col-3 offset-lg-4 offset-0  mx-lg-1 ">
             Score:
             <b id="score"></b>
         </div>
     </div>
+
     <div class="row">
-        <div class="col-lg-5 offset-lg-3 col-12 ">
+
+        <div class="col-lg-5  offset-lg-3  col-12 ">
             <p>Energy </p>
+
             <div class="progress ">
                 <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" id="progBar"
                      role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="30"></div>
@@ -75,8 +100,13 @@
         </div>
 
     </div>
+
+
     <div class="row">
+
         <div class="col-lg-3 col-12 my-2 ">
+
+
             <div class="row pt-3">
                 <div class="col-lg-6 col-5 offset-1 offset-lg-0">
                     <div class="btn-group-vertical offset-1 ">
@@ -90,6 +120,7 @@
                         <div class="modal fade" id="myModal">
                             <div class="modal-dialog">
                                 <div class="modal-content">
+
                                 </div>
 
                                 <!-- Modal body -->
@@ -105,8 +136,8 @@
                                         </ul>
                                         <div class="carousel-inner">
                                             <div class="carousel-item active">
-                                                <img src="<c:url value="/resources/img1/Diapositiva1.JPG"/>" alt="Los Angeles" width="500"
-                                                     height="287">
+                                                <img src="<c:url value="/resources/img1/Diapositiva1.JPG"/>" alt="Los Angeles"
+                                                     width="500" height="287">
                                                 <div class="carousel-caption">
 
                                                 </div>
@@ -159,91 +190,153 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-4 offset-1 offset-lg-2">
-                    <!--TODO -->
-                        <button class="btn btn-warning buttone">League</button>
+                    <button type="button" class="btn btn-warning buttone ">League</button>
                 </div>
             </div>
 
             <!--PARTE SINISTRA DELLA TABELLA-->
             <div class="row">
-                <div class="col-lg-1 col-5 "></div>
+                <dic class="col-lg-1 col-5 "></dic>
                 <div class="mypcimage pt-4">
-                    <img src="resources/img1/pcbuono.png" class="rounded img-fluid rounded float-right">
+                    <img src="<c:url value="/resources/img1/pcbuono.png"/>" class="rounded img-fluid rounded float-right"> </img>
                 </div>
             </div>
 
         </div>
-    </div>
+        </dic>
 
-    <!--TABELLA-->
-    <div class="col-lg-6 col-12 offset-lg-1 my-lg-3 " id="myGame"></div>
+        <!--TABELLA-->
+        <div class="col-lg-6 col-12 offset-lg-1 my-lg-3  " id="myGame"></div>
 
-    <!--PARTE DESTRA DELLA TABELLA-->
-    <div class="col-lg-3 col-12 offset-lg-0  ">
-        <div class="row my-1">
-            <div class="col-lg-3 col-6 offset-1 offset-lg-2 pl-lg-1 ">
-                <button id='up' onclick='clickMove(event)' class="arrowButtonsAlone text-center">
-                    <img src="resources/img1/arrowtrasparent1.png" class="rounded img-fluid rounded  rotate270"  > </img>
+        <!--PARTE DESTRA DELLA TABELLA-->
+        <div class="col-lg-3 col-12 offset-lg-0  ">
+            <div class="row my-1">
+                <div class="col-lg-3 col-6 offset-1 offset-lg-2 pl-lg-1 ">
+                    <button id='up' onclick='clickMove(event)' class="arrowButtonsAlone text-center">
+                        <img src="<c:url value="/resources/img1/arrowtrasparent1.png"/>"
+                             class="rounded img-fluid rounded  rotate270"> </img>
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-lg-3 col-4 offset-lg-0 offset-1 ml-lg-2">
+                    <button id='left' onclick='clickMove(event)' class="arrowButtons text-center">
+                        <img src="<c:url value="/resources/img1/arrowtrasparent1.png"/>" class="rounded img-fluid rounded 270"
+                             alt="Cinque Terre">
+                    </button>
+
+                </div>
+                <div class="col-lg-3 col-4 offset-1 offset-lg-0">
+                    <button id='right' onclick='clickMove(event)' class="arrowButtons text-center">
+                        <img src="<c:url value="/resources/img1/arrowtrasparent1.png"/>" class="rounded img-fluid rounded rotate180"
+                             alt="Cinque Terre">
                 </button>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-3 col-6 offset-1 offset-lg-2 pl-lg-1 ">
+                    <button id='down' onclick='clickMove(event)' class="arrowButtonsAlone text-center">
+                        <img src="<c:url value="/resources/img1/arrowtrasparent1.png"/>" class="rounded img-fluid rounded  rotate90"
+                             alt="Cinque Terre"> </img>
+                    </button>
+                </div>
+            </div>
+
+            <div class="row my-5">
+
+                <div class="col-lg-5 col-6 offset-4 pt-2 mt-lg-3 offset-lg-1">
+
+                    <button id="gameButton" class="btn btn-warning buttone " onclick="startGame()">Start Game</button>
+                    <button id="resetButton" class="btn btn-warning buttone" onclick="resetGame()">Reset Game</button>
+
+                </div>
             </div>
         </div>
         <div class="row">
 
-            <div class="col-lg-3 col-4 offset-lg-0 offset-1 ml-lg-2">
-                <button id = 'left' onclick='clickMove(event)' class="arrowButtons text-center">
-                    <img src="resources/img1/arrowtrasparent1.png" class="rounded img-fluid rounded "  alt="Cinque Terre"  > </img>
-                </button>
+            <div class="col-lg-12 col-12 offset-lg-2 my-lg-000000000000 watch" id="root">
 
-            </div>
-            <div class="col-lg-3 col-4 offset-1 offset-lg-0">
-                <button id='right' onclick='clickMove(event)' class="arrowButtons text-center">
-                    <img src="resources/img1/arrowtrasparent1.png" class="rounded img-fluid rounded rotate180"  alt="Cinque Terre"  > </img>                    </div>
-            </button>
-        </div>
 
-        <div class="row">
+                <script type="text/babel">
+                    function tick() {
+                        const element = (<h3>{new Date().toLocaleTimeString()}</h3>);
+                        ReactDOM.render(element, document.getElementById('root'));
 
-            <div class="col-lg-3 col-6 offset-1 offset-lg-2 pl-lg-1 ">
-                <button id='down' onclick='clickMove(event)' class="arrowButtonsAlone text-center">
-                    <img src="resources/img1/arrowtrasparent1.png" class="rounded img-fluid rounded  rotate90"  alt="Cinque Terre"  > </img>
-                </button>
-            </div>
-        </div>
+                    }
 
-        <div class="row my-5">
-
-            <div class="col-lg-5 col-6 offset-4 pt-2 mt-lg-3 offset-lg-1">
-
-                <button id="gameButton" class="btn btn-warning buttone " onclick="startGame()">Start Game
-                </button>
-                <button id='resetButton' class="btn btn-warning buttone" onaction="/paritita">Reset Game</button>
+                    setInterval(tick, 1000);
+                </script>
             </div>
         </div>
     </div>
+
+    <!--<div class="row">
+         <div class="col-lg-4"></div>
+         <div class="col-lg-4 my-lg-3 mr-lg-5 offset-lg-1 offset-3">
+
+                 <button id='up' onclick='clickMove(event)' class="arrowButtonsAlone">
+                         <i class="material-icons" style="color:white;">arrow_upward</i>
+                     </button>
+
+
+                     <button id = 'left' onclick='clickMove(event)' class="arrowButtons">
+                          <i class="material-icons" style="color:white;">arrow_back</i>
+                     </button>
+                     <button id='right' onclick='clickMove(event)' class="arrowButtons">
+                         <i class="material-icons" style="color:white;">arrow_forward</i>
+                     </button>
+
+
+                     <button id='down' onclick='clickMove(event)' class="arrowButtonsAlone">
+                         <i class="material-icons" style="color:white;">arrow_downward</i>
+                     </button>
+         </div>
+
+         <div class="col.lg-4"></div>
+     </div>
+   </div>
+ <div class="row">
+
+     <div class="col-lg-4 mt-3 offset-lg-4">
+
+             <button id="gameButton" class="btn btn-primary " onclick="startGame()">Start Game</button>
+             <button id="resetButton" class="btn btn-primary" onclick="resetGame()">Reset Game</button>
+
+     </div>
+ </div>
+
+-->
     <div class="row">
+        <div class="col">
+            <div class="alert alert-succes" id="messagerDiv" hidden>
 
-        <div class="col-lg-12 col-12 offset-lg-2 my-lg-000000000000 watch" id="root">
+            </div>
 
-
-            <script type="text/babel">
-                function tick() {
-                    const element = (<h3>{new Date().toLocaleTimeString()}</h3>);
-                    ReactDOM.render(element, document.getElementById('root'));
-
-                }
-
-                setInterval(tick, 1000);
-            </script>
         </div>
     </div>
+
+    <!--<div class="col-lg-8 col-4 offset-lg-6 my-lg-3 pt-lg-10 watch" id="root">
+
+      <script type="text/babel">
+        function tick() {
+          const element = (<h1>{new Date().toLocaleTimeString()}</h1>);
+          ReactDOM.render(element, document.getElementById('root'));
+        }
+
+        setInterval(tick, 1000);
+      </script>
+      </div>-->
+
+</div>
 </div>
 
-
-<div class="row">
-    <div class="col">
-        <div class="alert alert-succes" id="messagerDiv" hidden></div>
-
-    </div>
 </div>
+
 </body>
 </html>
+
+

@@ -5,7 +5,7 @@ class Enemy{
         this.y=y;
         this.lastX = x;
         this.lastY = y;
-        this.imgSrc='img1/cacciatore.jpg';
+        this.imgSrc= pathImgn +'cacciatore.jpg';
         this.timeout=1500;
         this.interval=null;
         this.player=null;

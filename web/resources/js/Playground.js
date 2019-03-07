@@ -49,13 +49,12 @@ class Playground {
     }
     getCellType(x,y){
         //console.log('x pos: '+x+'y pos : '+y);
-       var  imgsrc=this.matrix[y][x].src;
-       //console.log(imgsrc);
-        var regExString = new RegExp("(?:resources/img1/)(.*?)(?:.jpg)", "ig");
-       imgsrc=regExString.exec(imgsrc)[1];
-       //console.log(imgsrc);
+        var  imgsrc = this.matrix[y][x].src;
+        console.log(this.matrix[y][x].src);
+        var regExString = new RegExp("(?:./resources/img1/)(.*?)(?:.jpg)", "ig");
+        imgsrc=regExString.exec(imgsrc);
+        //console.log(imgsrc);
 
 
         return imgsrc;
-    }
-}
+}}

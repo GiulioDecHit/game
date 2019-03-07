@@ -1,6 +1,5 @@
 package com.dechit.cv.example.ranking;
 
-import com.dechit.cv.example.match.Partita;
 import com.dechit.cv.example.user.Utente;
 
 import javax.persistence.*;
@@ -35,13 +34,11 @@ public class ClassificaGenerale {
     @JoinColumn(name="nickUtente", referencedColumnName = "nickUtente")
     private Utente utente;
 
-    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    @JoinColumn(name = "nazione", referencedColumnName = "paese")
-    private Utente nazione;
+    @Column(name = "nazione")
+    private String nazione;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name="punteggio", referencedColumnName = "punteggio")
-    private Partita punteggio;
+    @Column(name="punteggio")
+    private Integer punteggio;
 
     @Column(name = "tipo")
     private String tipoDiGioco;
@@ -51,7 +48,7 @@ public class ClassificaGenerale {
         // TODO Auto-generated constructor stub
     }
 
-    public ClassificaGenerale(Utente utente, Utente nazione, Partita punteggio,
+    public ClassificaGenerale(Utente utente, String nazione, Integer punteggio,
                               String tipoDiGioco) {
         this.utente = utente;
         this.nazione = nazione;
@@ -59,11 +56,11 @@ public class ClassificaGenerale {
         this.tipoDiGioco = tipoDiGioco;
     }
 
-    public Utente getNazione() {
+    public String getNazione() {
         return nazione;
     }
 
-    public void setNazione(Utente nazione) {
+    public void setNazione(String nazione) {
         this.nazione = nazione;
     }
 
@@ -75,11 +72,11 @@ public class ClassificaGenerale {
         this.utente = utente;
     }
 
-    public Partita getPunteggio() {
+    public Integer getPunteggio() {
         return punteggio;
     }
 
-    public void setPunteggio(Partita punteggio) {
+    public void setPunteggio(Integer punteggio) {
         this.punteggio = punteggio;
     }
 
@@ -104,8 +101,8 @@ public class ClassificaGenerale {
         return "ClassificaGenerale{" +
                 "id=" + id +
                 ", utente=" + utente.getNickUtente() +
-                ", nazione=" + nazione.getPaese() +
-                ", punteggio=" + punteggio.getPunteggio() +
+                ", nazione=" + nazione +
+                ", punteggio=" + punteggio +
                 ", tipoDiGioco='" + tipoDiGioco + '\'' +
                 '}';
     }
